@@ -1,7 +1,7 @@
 from django.urls import path
 from core.views.user_views import register_user,login_user
 from core.views.seat_views import get_seats_by_floorplan
-from core.views.booking_views import create_booking,mark_attendance
+from core.views.booking_views import create_booking,mark_attendance,cancel_booking
 from core.views.floorplan_views import list_floorplans,create_floorplan
 from core.views.analytics_views import booking_summary
 from core.views.waitlist_views import join_waitlist,my_waitlist,leave_waitlist
@@ -18,5 +18,6 @@ urlpatterns = [
     path('waitlist/join/',join_waitlist),
     path('waitlist/my/',my_waitlist),
     path('waitlist/leave/<int:waitlist_id>/',leave_waitlist),
+    path('bookings/cancel/<int:booking_id>',cancel_booking)
 
 ]
