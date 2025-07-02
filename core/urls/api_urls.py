@@ -1,0 +1,17 @@
+from django.urls import path
+from core.views.user_views import register_user,login_user
+from core.views.seat_views import get_seats_by_floorplan
+from core.views.booking_views import create_booking,mark_attendance
+from core.views.floorplan_views import list_floorplans,create_floorplan
+from core.views.analytics_views import booking_summary
+
+urlpatterns = [
+    path('auth/register/', register_user),
+    path('auth/login/',login_user),
+    path('seats/',get_seats_by_floorplan),
+    path('bookings/',create_booking),
+    path('bookings/mark/',mark_attendance),
+    path('floorplans/',list_floorplans),
+    path('floorplans/create/',create_floorplan),
+    path('analytics/summary/',booking_summary),
+]
