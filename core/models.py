@@ -59,3 +59,14 @@ class Booking(models.Model):
 
     def __str__(self):
         return f"{self.user.username} - {self.seat.label} on {self.date}"
+
+#6. Waitlist
+class Waitlist(models.Model):
+    user = models.ForeignKey(User,on_delete=models.CASCADE)
+    seat = models.ForeignKey(Seat,on_delete=models.CASCADE)
+    date = models.DateField()
+    joined_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta : 
+        unique_together = ('user','seat','date')
+

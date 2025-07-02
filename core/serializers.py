@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Organization,User,FloorPlan,Seat,Booking
+from .models import Organization,User,FloorPlan,Seat,Booking,Waitlist
 
 #1. Organisation
 class OrganizationSerializer(serializers.ModelSerializer):
@@ -43,3 +43,9 @@ class BookingSerializer(serializers.ModelSerializer):
         ]
 
         read_only_fields = ['created_at']
+
+#6. Waitlist
+class WaitlistSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Waitlist
+        fields = '__all__'
